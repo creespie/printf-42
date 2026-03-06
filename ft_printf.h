@@ -23,6 +23,8 @@ int	ft_find_flags(char *format, int *len, t_flags *flags, va_list args);
 int	ft_printf(const char *format, ...);
 void	ft_flags(t_flags *flags, char c);
 void	ft_cases(char *format, int i, int *len, va_list args);
-void	ft_print_c(va_list args, t_flags *flags, int *len)
+void	ft_print_c(va_list args, t_flags *flags, int *len);
+void ft_print_spaces(t_flags *flags, char *string, int *len);
+void ft_padding(t_flags *flags);
 
 #endif

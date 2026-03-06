@@ -45,14 +45,13 @@ void static	ft_print_string(t_flags *flags, char *string, int *len)
 		*len = *len + ft_strlen(string);
 	}
 }
-
-void static	ft_print_spaces(t_flags *flags, char *string, int *len)
+void ft_print_spaces(t_flags *flags, char *string, int *len)
 {
 	if (flags -> prec < ft_strlen(string))
 	{
 		while (flags -> width > flags -> prec)
 		{
-			ft_putchar(' ');
+			ft_padding(flags);
 			flags ->width--;
 			(*len)++;
 		}
@@ -61,9 +60,17 @@ void static	ft_print_spaces(t_flags *flags, char *string, int *len)
 	{
 		while (flags -> width > ft_strlen(string))
 		{
-			ft_putchar(' ');
+			ft_padding(flags);
 			flags ->width--;
 			(*len)++;
 		}
 	}
+}
+
+void ft_padding(t_flags *flags)
+{
+	if (flags -> zero == 1 && flags -> minus == 0)
+		ft_putchar('0');
+	else
+		ft_putchar(' ');
 }
