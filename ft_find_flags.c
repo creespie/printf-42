@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_find_bonus(char *format, int *len, t_flags *flags)
+int	ft_find_flags(char *format, int *len, t_flags *flags, va_list args)
 {
 	int	i;
 
@@ -19,7 +19,7 @@ int	ft_find_bonus(char *format, int *len, t_flags *flags)
 		i++;
 		flags -> prec = ft_find_numbers(format, &i);
 	}
-	ft_cases(format, i, len);
+	ft_cases(format[i], flags, len, &args);
 	i++;
 	return(i);
 }

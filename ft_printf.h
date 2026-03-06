@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stddef.h>
+#include  <stdarg.h>
 #include "libft/libft.h"
 
 typedef struct s_flags
@@ -18,8 +19,9 @@ typedef struct s_flags
 } t_flags;
 
 int ft_find_numbers(char *format, int *i);
-int	ft_find_bonus(char *format, int	i, int *len);
+int	ft_find_flags(char *format, int *len, t_flags *flags, va_list args);
 int	ft_printf(const char *format, ...);
 void	ft_flags(t_flags *flags, char c);
+void	ft_cases(char *format, int i, int *len, va_list args);
 
 #endif
