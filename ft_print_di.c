@@ -1,12 +1,18 @@
 #include "ft_printf.h"
 
-void	ft_print_s(va_list args, t_flags *flags, int *len)
+void	ft_print_di(va_list args, t_flags *flags, int *len)
 {
 	int	nbr;
 	char	*string;
 
 	nbr = va_arg(args, int);
 	string = ft_itoa(nbr);
+	if (flags->prec == 0 && nbr == 0)
+	{
+    	if (flags->width > 0)
+    	    ft_print_spaces(flags, len, flags->width);
+    	return ;
+	}
 	ft_space_plus(nbr, string, flags, len);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
@@ -21,7 +27,7 @@ void	ft_print_s(va_list args, t_flags *flags, int *len)
 	free(string);
 }
 
-void static	ft_space_plus(int nbr, t_flags *flags, char *string, int *len)
+static void	ft_space_plus(int nbr, t_flags *flags, char *string, int *len)
 {
 	if (nbr > 0 && flags -> plus == 1)
 	{
@@ -37,7 +43,7 @@ void static	ft_space_plus(int nbr, t_flags *flags, char *string, int *len)
 	}
 }
 
-void static	ft_print_string(t_flags *flags, char *string, int *len)
+static void	ft_print_string(t_flags *flags, char *string, int *len)
 {
 	while(ft_strlen(string) < flags -> prec)
 	{

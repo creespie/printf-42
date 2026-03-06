@@ -25,7 +25,7 @@ void	ft_print_s(va_list args, t_flags *flags, int *len)
 	}
 }
 
-void static	ft_print_string(t_flags *flags, char *string, int *len)
+static void	ft_print_string(t_flags *flags, char *string, int *len)
 {
 	int	i;
 
@@ -46,7 +46,7 @@ void static	ft_print_string(t_flags *flags, char *string, int *len)
 	}
 }
 
-void static	ft_process_spaces(t_flags *flags, char *string, int *len)
+static void	ft_process_spaces(t_flags *flags, char *string, int *len)
 {
 	if (flags -> prec < ft_strlen(string))
 		ft_print_spaces(flags, len, flags->width - flags->prec);
