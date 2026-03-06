@@ -9,21 +9,15 @@ void	ft_print_s(va_list args, t_flags *flags, int *len)
 	string = ft_itoa(nbr);
 	ft_space_plus(nbr, string, flags, len);
 	if (flags -> minus == 1)
-	{
 		ft_print_string(flags, string, len);
-	}
 	if (flags -> minus == 1 && flags -> width > 0)
-	{
 		ft_print_spaces(flags, string, len);
-	}
 	else if (flags->width > flags->prec && flags->prec > ft_strlen(string))
-		ft_print_spaces(flags, string, len, flags->width - flags->prec);
+		ft_print_spaces(flags, len, flags->width - flags->prec);
 	else if (flags->width > ft_strlen(string))
-		ft_print_spaces(flags, string, len, flags->width - ft_strlen(string));
+		ft_print_spaces(flags, len, flags->width - ft_strlen(string));
 	if (flags -> minus == 0)
-	{
 		ft_print_string(flags, string, len);
-	}
 	free(string);
 }
 
