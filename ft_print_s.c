@@ -1,10 +1,10 @@
 #include "ft_printf.h"
 
-void	ft_print_s(va_list args, t_flags *flags, int *len)
+void	ft_print_s(va_list *args, t_flags *flags, int *len)
 {
 	char	*string;
 
-	string = va_arg(args, char*);
+	string = va_arg(*args, char*);
 	if (flags -> width > ft_strlen(string) || (flags -> width > flags -> prec 
 			&& flags -> prec < ft_strlen(string) && flags -> prec > 0))
 	{

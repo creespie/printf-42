@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 
-void	ft_print_di(va_list args, t_flags *flags, int *len)
+void	ft_print_di(va_list *args, t_flags *flags, int *len)
 {
 	int	nbr;
 	char	*string;
 
-	nbr = va_arg(args, int);
+	nbr = va_arg(*args, int);
 	if (flags->prec == 0 && nbr == 0)
 	{
     	if (flags->width > 0)

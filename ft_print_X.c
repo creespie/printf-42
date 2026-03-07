@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 
-void	ft_print_X(va_list args, t_flags *flags,int *len)
+void	ft_print_X(va_list *args, t_flags *flags,int *len)
 {
 	unsigned int	nbr;
 	char	*string;
 
-	nbr = va_arg(args, unsigned int);
+	nbr = va_arg(*args, unsigned int);
 	string = ft_to_hex(nbr);
 	if (flags->prec == 0 && nbr == 0)
 	{

@@ -1,11 +1,11 @@
 #include "ft_printf.h"
 
-void	ft_print_p(va_list args, t_flags *flags,int *len)
+void	ft_print_p(va_list *args, t_flags *flags,int *len)
 {
 	unsigned long	nbr;
 	char	*string;
 
-	nbr = (unsigned long)va_arg(args, void *);
+	nbr = (unsigned long)va_arg(*args, void *);
 	if (nbr == 0)
 	{
 		ft_putstr("(nil)");
