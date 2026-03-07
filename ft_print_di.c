@@ -6,13 +6,13 @@ void	ft_print_di(va_list args, t_flags *flags, int *len)
 	char	*string;
 
 	nbr = va_arg(args, int);
-	string = ft_itoa(nbr);
 	if (flags->prec == 0 && nbr == 0)
 	{
     	if (flags->width > 0)
     	    ft_print_spaces(flags, len, flags->width);
     	return ;
 	}
+	string = ft_itoa(nbr);
 	ft_space_plus(nbr, string, flags, len);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);

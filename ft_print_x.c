@@ -6,14 +6,13 @@ void	ft_print_x(va_list args, t_flags *flags,int *len)
 	char	*string;
 
 	nbr = va_arg(args, unsigned int);
-	string = ft_to_hex(nbr);
 	if (flags->prec == 0 && nbr == 0)
 	{
     	if (flags->width > 0)
     	    ft_print_spaces(flags, len, flags->width);
-		free(string);
     	return ;
 	}
+	string = ft_to_hex(nbr);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
 	if (flags -> minus == 1 && flags -> width > 0)

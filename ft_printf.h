@@ -30,5 +30,8 @@ void	ft_print_s(va_list args, t_flags *flags, int *len);
 void	ft_print_di(va_list args, t_flags *flags, int *len);
 char	*ft_uitoa(unsigned int n);
 void	ft_print_u(va_list args, t_flags *flags, int *len);
+void	ft_print_x(va_list args, t_flags *flags,int *len);
+void	ft_print_X(va_list args, t_flags *flags,int *len);
+void	ft_print_p(va_list args, t_flags *flags,int *len);
 
 #endif
