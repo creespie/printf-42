@@ -17,7 +17,7 @@ void	ft_print_di(va_list args, t_flags *flags, int *len)
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
 	if (flags -> minus == 1 && flags -> width > 0)
-		ft_print_spaces(flags, string, len);
+		ft_print_spaces(flags, len, flags -> width);
 	else if (flags->width > flags->prec && flags->prec > ft_strlen(string))
 		ft_print_spaces(flags, len, flags->width - flags->prec);
 	else if (flags->width > ft_strlen(string))
