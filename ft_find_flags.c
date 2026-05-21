@@ -19,7 +19,7 @@ int	ft_find_flags(char *format, int *len, t_flags *flags, va_list *args)
 		i++;
 		flags -> prec = ft_find_numbers(format, &i);
 	}
-	ft_cases(format[i], flags, len, &args);
+	ft_cases(format[i], flags, len, args);
 	i++;
 	return(i);
 }
