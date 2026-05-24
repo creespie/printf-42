@@ -5,6 +5,8 @@ int	ft_find_flags(const char *format, int *len, t_flags *flags, va_list *args)
 	int	i;
 
 	i = 0;
+	if (format[i] == '%')
+        i++;
 	ft_memset(flags, 0, sizeof(t_flags));
 	flags->prec = -1;
 	while (format[i] == '-' || format[i] == '0' || format[i] == '#' 
