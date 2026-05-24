@@ -9,6 +9,7 @@ int	ft_printf(const char *format, ...)
 
 	len = 0;
 	i = 0;
+	va_start(args, format);
 	while (format[i])
 	{
 		if (format[i] != '%')
@@ -22,5 +23,6 @@ int	ft_printf(const char *format, ...)
 			i = i + ft_find_flags(&format[i], &len, &flags, &args);
 		}
 	}
+	va_end(args);
 	return (len);
 }

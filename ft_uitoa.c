@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "ft_printf.c"
+#include "ft_printf.h"
 
 static int	ft_count_malloc(unsigned int n)
 {
