@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_find_numbers(char *format, int *i)
+int ft_find_numbers(const char *format, int *i)
 {
 	long int	length;
 

@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int	ft_find_flags(char *format, int *len, t_flags *flags, va_list *args)
+int	ft_find_flags(const char *format, int *len, t_flags *flags, va_list *args)
 {
 	int	i;
 

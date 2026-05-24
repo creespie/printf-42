@@ -1,5 +1,9 @@
 #include "ft_printf.h"
 
+static void	ft_print_string(t_flags *flags, char *string, int *len);
+static char	*ft_to_hex(unsigned long nbr);
+static int ft_count_len(unsigned long nbr);
+
 void	ft_print_p(va_list *args, t_flags *flags,int *len)
 {
 	unsigned long	nbr;
@@ -15,9 +19,9 @@ void	ft_print_p(va_list *args, t_flags *flags,int *len)
 	string = ft_to_hex(nbr);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
-	if (flags->width > ft_strlen(string) && flags -> minus == 1)
+	if (flags->width > (long)ft_strlen(string) && flags -> minus == 1)
 		ft_print_spaces(flags, len, flags->width - ft_strlen(string));
-	else if(flags->width > ft_strlen(string) && flags -> minus == 0)
+	else if(flags->width > (long)ft_strlen(string) && flags -> minus == 0)
 		ft_print_spaces(flags, len, flags->width - ft_strlen(string) - 2);
 	if (flags -> minus == 0)
 		ft_print_string(flags, string, len);

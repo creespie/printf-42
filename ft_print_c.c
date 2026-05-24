@@ -6,18 +6,18 @@ void	ft_print_c(va_list *args, t_flags *flags, int *len)
 	{
 		*len = flags -> width;
 		if (flags -> minus > 0)
-			ft_putchar(va_arg(*args, char));
+			ft_putchar((char)va_arg(*args, int));
 		while (flags -> width > 1)
 		{
-			ft_putchar(va_arg(*args, char));
+			ft_putchar(' ');
 			(flags -> width)--;
 		}
 		if (flags -> minus == 0)
-			ft_putchar(va_arg(*args, char));
+			ft_putchar((char)va_arg(*args, int));
 	}
 	else
 	{
-		ft_putchar(va_arg(*args, char));
+		ft_putchar((char)va_arg(*args, int));
 		(*len)++;
 	}
 }

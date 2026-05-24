@@ -1,5 +1,7 @@
 #include "ft_printf.h"
 
+static void	ft_print_string(t_flags *flags, char *string, int *len);
+
 void	ft_print_u(va_list *args, t_flags *flags, int *len)
 {
 	unsigned int	nbr;
@@ -17,9 +19,9 @@ void	ft_print_u(va_list *args, t_flags *flags, int *len)
 		ft_print_string(flags, string, len);
 	if (flags -> minus == 1 && flags -> width > 0)
 		ft_print_spaces(flags, len, flags -> width);
-	else if (flags->width > flags->prec && flags->prec > ft_strlen(string))
+	else if (flags->width > flags->prec && flags->prec > (long)ft_strlen(string))
 		ft_print_spaces(flags, len, flags->width - flags->prec);
-	else if (flags->width > ft_strlen(string))
+	else if (flags->width > (long)ft_strlen(string))
 		ft_print_spaces(flags, len, flags->width - ft_strlen(string));
 	if (flags -> minus == 0)
 		ft_print_string(flags, string, len);
@@ -28,7 +30,7 @@ void	ft_print_u(va_list *args, t_flags *flags, int *len)
 
 static void	ft_print_string(t_flags *flags, char *string, int *len)
 {
-	while(ft_strlen(string) < flags -> prec)
+	while((long)ft_strlen(string) < flags -> prec)
 	{
 		ft_putchar('0');
 		flags -> prec--;

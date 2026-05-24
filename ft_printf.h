@@ -18,13 +18,13 @@ typedef struct s_flags
 	long int prec;
 } t_flags;
 
-int ft_find_numbers(char *format, int *i);
-int	ft_find_flags(char *format, int *len, t_flags *flags, va_list *args);
+int ft_find_numbers(const char *format, int *i);
+int	ft_find_flags(const char *format, int *len, t_flags *flags, va_list *args);
 int	ft_printf(const char *format, ...);
 void	ft_flags(t_flags *flags, char c);
 void	ft_cases(char letter, t_flags *flags, int *len, va_list *args);
 void	ft_print_c(va_list *args, t_flags *flags, int *len);
-void	ft_print_spaces(t_flags *flags, char *string, int *len);
+void	ft_print_spaces(t_flags *flags, int *len, int amount);
 void	ft_padding(t_flags *flags);
 void	ft_print_s(va_list *args, t_flags *flags, int *len);
 void	ft_print_di(va_list *args, t_flags *flags, int *len);

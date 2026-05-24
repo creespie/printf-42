@@ -15,7 +15,7 @@ SRCS		= ft_cases.c \
 		  ft_print_s.c \
 		  ft_print_spaces.c \
 		  ft_print_u.c \
-		  ft_print_x.c \
+		  ft_print_xl.c \
 		  ft_print_X.c \
 		  ft_printf.c \
 		  ft_uitoa.c
