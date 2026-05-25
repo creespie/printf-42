@@ -19,8 +19,8 @@ void	ft_print_p(va_list *args, t_flags *flags,int *len)
 	string = ft_to_hex(nbr);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
-	if (flags->width > (long)ft_strlen(string) && flags -> minus == 1)
-		ft_print_spaces(flags, len, flags->width - ft_strlen(string));
+	if ((flags->width + ft_strlen(string) + 2) > ft_strlen(string) && flags -> minus == 1)
+		ft_print_spaces(flags, len, flags->width);
 	else if(flags->width > (long)ft_strlen(string) && flags -> minus == 0)
 		ft_print_spaces(flags, len, flags->width - ft_strlen(string) - 2);
 	if (flags -> minus == 0)

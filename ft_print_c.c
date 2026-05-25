@@ -4,7 +4,7 @@ void	ft_print_c(va_list *args, t_flags *flags, int *len)
 {
 	if (flags -> width > 0)
 	{
-		*len = flags -> width;
+		*len = *len + flags -> width;
 		if (flags -> minus > 0)
 			ft_putchar((char)va_arg(*args, int));
 		while (flags -> width > 1)

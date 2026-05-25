@@ -33,7 +33,7 @@ void	ft_print_X(va_list *args, t_flags *flags,int *len)
 
 static void	ft_print_string(t_flags *flags, char *string, int *len)
 {
-	if (flags -> hash == 1)
+	if (flags -> hash == 1 && *string != '0')
 	{
 		ft_putstr("0X");
 		flags -> width = flags -> width - 2;

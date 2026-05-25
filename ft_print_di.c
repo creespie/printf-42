@@ -7,6 +7,7 @@ void	ft_print_di(va_list *args, t_flags *flags, int *len)
 {
 	int	nbr;
 	char	*string;
+	char	*to_free;
 
 	nbr = va_arg(*args, int);
 	if (flags->prec == 0 && nbr == 0)
@@ -16,6 +17,7 @@ void	ft_print_di(va_list *args, t_flags *flags, int *len)
     	return ;
 	}
 	string = ft_itoa(nbr);
+	to_free = string;
 	ft_space_plus(nbr, flags, len);
 	if (flags -> minus == 1)
 		ft_print_string(flags, string, len);
@@ -24,21 +26,30 @@ void	ft_print_di(va_list *args, t_flags *flags, int *len)
 	else if (flags->width > flags->prec && flags->prec > (long)ft_strlen(string))
 		ft_print_spaces(flags, len, flags->width - flags->prec);
 	else if (flags->width > (long)ft_strlen(string))
+	{
+		if (flags->zero == 1 && string[0] == '-')
+		{
+			ft_putchar('-');
+			(*len)++;
+			flags->width--;
+			string++;
+		}
 		ft_print_spaces(flags, len, flags->width - ft_strlen(string));
+	}
 	if (flags -> minus == 0)
 		ft_print_string(flags, string, len);
-	free(string);
+	free(to_free);
 }
 
 static void	ft_space_plus(int nbr, t_flags *flags, int *len)
 {
-	if (nbr > 0 && flags -> plus == 1)
+	if (nbr >= 0 && flags -> plus == 1)
 	{
 		ft_putchar('+');
 		flags -> width--;
 		(*len)++;
 	}
-	if (nbr > 0 && flags -> plus == 0 && flags -> space == 1)
+	if (nbr >= 0 && flags -> plus == 0 && flags -> space == 1)
 	{
 		ft_putchar(' ');
 		flags -> width--;
@@ -48,7 +59,19 @@ static void	ft_space_plus(int nbr, t_flags *flags, int *len)
 
 static void	ft_print_string(t_flags *flags, char *string, int *len)
 {
-	while((long)ft_strlen(string) < flags -> prec)
+	int leng;
+
+	if (string[0] == '-' || string[0] == '+')
+	{
+		ft_putchar(string[0]);
+        (*len)++;
+        flags->width--;
+        string++;
+        leng = ft_strlen(string);
+	}
+	else
+		leng = ft_strlen(string);
+	while(leng < flags -> prec)
 	{
 		ft_putchar('0');
 		flags -> prec--;

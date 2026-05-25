@@ -37,6 +37,8 @@ $(NAME): $(OBJS) $(LIBFT)
 %.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
+bonus: all
+
 clean:
 	$(RM) $(OBJS)
 	$(MAKE) -C $(LIBFT_DIR) clean
@@ -47,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
